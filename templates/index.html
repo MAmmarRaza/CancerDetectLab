@@ -17,11 +17,14 @@
 					<h1 id="logo"><a href="index.html">CancerDetectLab</a></h1>
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="/">Home</a></li>
 							<li>
-								<a href="#">Source Code</a>
+								<a href="/leukemia" target="_blank">Acute Lymphoblastic Leukemia</a>
 							</li>
-							<li><a target="_blank" href="https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images?resource=download">Dataset</a></li>
+							<li>
+								<a href="/BreastCancer" target="_blank">Breast Cancer</a>
+							</li>
+							<li><a target="_blank" href="https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images?resource=download">Source Code</a></li>
 							<li><a href="#four" class="button primary  scrolly">Get Started</a></li>
 						</ul>
 					</nav>
@@ -31,7 +34,7 @@
 			<section id="banner">
 				<div class="content">
 					<header>
-						<h2>Early Detection of Breast Cancer</h2>
+						<h2>Early Detection of Cancer</h2>
 						<p>Empowering healthcare with AI and deep learning.</p>
 					</header>
 					<span class="image"><img src="https://images.pexels.com/photos/6798710/pexels-photo-6798710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Project Image" /></span>
@@ -47,7 +50,7 @@
 						<div class="row">
 							<div class="col-4 col-12-medium">
 								<header>
-									<h2>Early Detection Matters</h2>
+									<h2  style="color: #E44C65;">Early Breast Cancer Detection</h2>
 									<p>Identifying breast cancer at the earliest stage.</p>
 								</header>
 							</div>
@@ -63,17 +66,42 @@
 				<a href="#two" class="goto-next scrolly">Next</a>
 			</section>
 			
+			
+			<!-- Four -->
+			<section id="four" class="wrapper style1 special fade-up">
+				<div class="container">
+					<form class="form-container" enctype='multipart/form-data' action="/predict" method="POST">
+						<div class="upload-files-container">
+							<div class="drag-file-area">
+								<span class="material-icons-outlined upload-icon"> Predict Now! </span>
+								<h3 class="dynamic-message"> Drag & drop any file here </h3>
+								<label class="label"> or <span class="browse-files"> <input type="file" name="image" class="default-file-input"/> <span class="browse-files-text">browse file</span> <span>from device</span> </span> </label>
+							</div>
+							<span class="cannot-upload-message"> <span class="material-icons-outlined">error</span> Please select a file first <span class="material-icons-outlined cancel-alert-button">cancel</span> </span>
+							<div class="file-block">
+								<div class="file-info"> <span class="material-icons-outlined file-icon">description</span> <span class="file-name"> </span> | <span class="file-size">  </span> </div>
+								<span class="material-icons remove-file-icon">delete</span>
+								<div class="progress-bar"> </div>
+							</div>
+							<input type="submit" class="upload-button"></input>
+						</div>
+					</form>
+					<!-- <a href="#five" class="goto-next scrolly">Next</a> -->
+				</div>
+			</section>
+
+
 			<!-- Two -->
 			<section id="two" class="spotlight style2 right">
-				<span class="image fit main"><img src="https://images.pexels.com/photos/6798567/pexels-photo-6798567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Project Image" /></span>
+				<span class="image fit main"><img src="https://cdn.pixabay.com/photo/2016/11/10/02/47/blood-1813410_1280.jpg" alt="Project Image" /></span>
 				<div class="content">
 					<header>
-						<h2>Predictive Analytics for Treatment Planning</h2>
-						<p>Personalizing breast cancer treatment for better outcomes.</p>
+						<h2 style="color: #E44C65;">Acute Lymphoblastic Leukemia</h2>
+						<p>Personalizing acute lymphoblastic leukemia treatment for better outcomes.</p>
 					</header>
-					<p>Our project leverages predictive analytics and machine learning algorithms to assist in treatment planning for breast cancer patients. By analyzing various patient data, including medical history, genetic profiles, and tumor characteristics.</p>
+					<p>Our project leverages predictive analytics and machine learning algorithms to assist in treatment planning for acute lymphoblastic leukemia patients.</p>
 					<ul class="actions">
-						<li><a href="#" class="button">Learn More</a></li>
+						<li><a href="/leukemia" class="button">Learn More</a></li>
 					</ul>
 				</div>
 				<a href="#four" class="goto-next scrolly">Next</a>
@@ -83,7 +111,7 @@
 			<!-- Four -->
 				<section id="four" class="wrapper style1 special fade-up">
 					<div class="container">
-						<form class="form-container" enctype='multipart/form-data' action="/predict" method="POST">
+						<form class="form-container" enctype='multipart/form-data' action="/predictAll" method="POST">
 							<div class="upload-files-container">
 								<div class="drag-file-area">
 									<span class="material-icons-outlined upload-icon"> Predict Now! </span>

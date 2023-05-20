@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Ductal Carcinoma</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+		<noscript><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nonscript.css') }}"></noscript>
+	</head>
+	<body class="is-preload landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html">Landed</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li>
+								<a href="#">Source Code</a>
+							</li>
+							<li><a target="_blank" href="https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images?resource=download">Dataset</a></li>
+							<li><a href="#four" class="button primary">Get Started</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+			<section id="banner">
+				<div class="content">
+					<header>
+						<h2>{{ resnet_response.predicted_class_name }}</h2>
+                        <p>Filename: {{  resnet_response.image_details.filename }}<br>Size: {{  resnet_response.image_details.size }} bytes <br>Type: {{  resnet_response.image_details.type }} </p>
+					</header>
+					<span class="image"><img src="data:image/png;base64,{{  resnet_response.image_details.data }}" alt="Project Image" /></span>
+				</div>
+				<a href="#five" class="goto-next scrolly">Next</a>
+			</section>
+			
+
+			<!-- Five -->
+			<section id="five" class="wrapper style2 special fade">
+				<div class="container">
+					<header>
+						<h2>Stay Updated with Our Project</h2>
+						<p>Subscribe to receive project updates and news.</p>
+					</header>
+					<form method="post" action="#" class="cta">
+						<div class="row gtr-uniform gtr-50">
+							<div class="col-8 col-12-xsmall">
+								<input type="email" name="email" id="email" placeholder="Your Email Address" />
+							</div>
+							<div class="col-4 col-12-xsmall">
+								<input type="submit" value="Subscribe" class="fit primary" />
+							</div>
+						</div>
+					</form>
+                    <a href="#footer" class="goto-next scrolly">Next</a>
+				</div>
+			</section>			
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Copyright. All rights reserved.</li><li>Design By: <a href="#">NTU Students</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+		<script src="{{ url_for('static', filename='js/code.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+	</body>
+</html>

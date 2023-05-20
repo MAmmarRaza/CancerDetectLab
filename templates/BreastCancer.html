@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Ductal Carcinoma</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fontawesome-all.min.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+		<noscript><link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/nonscript.css') }}"></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1 id="logo"><a href="/">CancerDetectLab</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li>
+							<a href="/leukemia" target="_blank">Acute Lymphoblastic Leukemia</a>
+						</li>
+						<li>
+							<a href="/BreastCancer" target="_blank">Breast Cancer</a>
+						</li>
+						<li><a target="_blank" href="https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images?resource=download">Source Code</a></li>
+						<li><a href="#four" class="button primary  scrolly">Get Started</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Main -->
+			<div id="main" class="wrapper style1">
+				<div class="container">
+					<header class="major">
+						<h2>Early Breast Cancer Detection</h2>
+            			<p>Analyze and classify breast histopathology images for invasive and non-invasive ductal carcinoma</p>
+					</header>
+
+					<!-- Content -->
+						<section id="content">
+							<a href="#" class="image fit"><img src="https://images.pexels.com/photos/8384602/pexels-photo-8384602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" /></a>
+							<h3>Early Breast Cancer Detection</h3>
+							<p>This project focuses on the detection and classification of early-stage breast cancer using machine learning techniques. Specifically, it aims to differentiate between invasive and non-invasive ductal carcinoma, which are two common types of breast cancer.</p>
+							<p>The dataset used for this project contains a collection of histopathology images of breast tissue samples. Each image is labeled as either invasive ductal carcinoma or non-invasive ductal carcinoma.</p>
+							<p>The machine learning model is trained on these labeled images to learn the distinguishing features of each type of cancer. It takes into account various characteristics of the tissue samples, such as cell structure, density, and arrangement, to accurately classify them as either invasive or non-invasive ductal carcinoma.</p>
+							<h3>About Invasive and Non-Invasive Ductal Carcinoma</h3>
+							<p>Invasive ductal carcinoma is a type of breast cancer that starts in the milk ducts but has spread to surrounding breast tissue. It is the most common type of breast cancer. Non-invasive ductal carcinoma, also known as ductal carcinoma in situ (DCIS), is a type of breast cancer that remains confined to the milk ducts and has not spread to surrounding tissue.</p>
+							<ul>
+								<li>Early detection of breast cancer can significantly improve treatment outcomes.</li>
+								<li>Invasive ductal carcinoma is characterized by the cancer cells breaking through the ductal walls and spreading to surrounding tissues.</li>
+								<li>Non-invasive ductal carcinoma remains confined to the milk ducts and has not spread to surrounding tissues.</li>
+								<li>Timely diagnosis and appropriate treatment are crucial for better prognosis.</li>
+								<li>Regular breast cancer screening and awareness can help detect cancer at an early stage.</li>
+							</ul>
+						</section>
+
+				</div>
+			</div>
+
+			<!-- Four -->
+			<section id="four" class="wrapper style1 special fade-up" style="background-color: #272833;">
+				<div class="container">
+					<form class="form-container" enctype='multipart/form-data' action="/predict" method="POST">
+						<div class="upload-files-container">
+							<div class="drag-file-area">
+								<span class="material-icons-outlined upload-icon"> Predict Now! </span>
+								<h3 class="dynamic-message"> Drag & drop any file here </h3>
+								<label class="label"> or <span class="browse-files"> <input type="file" name="image" class="default-file-input"/> <span class="browse-files-text">browse file</span> <span>from device</span> </span> </label>
+							</div>
+							<span class="cannot-upload-message"> <span class="material-icons-outlined">error</span> Please select a file first <span class="material-icons-outlined cancel-alert-button">cancel</span> </span>
+							<div class="file-block">
+								<div class="file-info"> <span class="material-icons-outlined file-icon">description</span> <span class="file-name"> </span> | <span class="file-size">  </span> </div>
+								<span class="material-icons remove-file-icon">delete</span>
+								<div class="progress-bar"> </div>
+							</div>
+							<input type="submit" class="upload-button"></input>
+						</div>
+					</form>
+					<!-- <a href="#five" class="goto-next scrolly">Next</a> -->
+				</div>
+			</section>
+
+			<!-- Footer -->
+			<footer id="footer" style="background-color: #1C1D26;">
+				<!-- <ul class="icons">
+					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul> -->
+				<ul class="copyright">
+					<li>&copy; Copyright. All rights reserved.</li><li>Design By: <a href="#">NTU Students</a></li>
+				</ul>
+			</footer>
+		</div>
+
+		<script src="{{ url_for('static', filename='js/code.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.dropotron.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+	</body>
+</html>

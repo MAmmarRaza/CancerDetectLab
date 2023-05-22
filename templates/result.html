@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Ductal Carcinoma</title>
+		<title>CancerDetectLab</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
@@ -11,30 +11,34 @@
 	</head>
 	<body class="is-preload landing">
 		<div id="page-wrapper">
-
-			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">Landed</a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<a href="#">Source Code</a>
-							</li>
-							<li><a target="_blank" href="https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images?resource=download">Dataset</a></li>
-							<li><a href="#four" class="button primary">Get Started</a></li>
-						</ul>
-					</nav>
-				</header>
+		<!-- Header -->
+		<header id="header">
+			<h1 id="logo"><a href="index.html">CancerDetectLab</a></h1>
+			<nav id="nav">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li>
+						<a href="/leukemia" >Acute Lymphoblastic Leukemia</a>
+					</li>
+					<li>
+						<a href="/BreastCancer" >Breast Cancer</a>
+					</li>
+					<li><a target="_blank" href="https://github.com/MAmmarRaza/CancerDetectLab.git">Source Code</a></li>
+					<li><a href="#four" class="button primary  scrolly">Get Started</a></li>
+				</ul>
+			</nav>
+		</header>
 
 			<!-- Banner -->
 			<section id="banner">
 				<div class="content">
+					<span class="image" style="text-align: left;"><img src="data:image/png;base64,{{ result.image_details.data }}" alt="Project Image" /></span>
 					<header>
-						<h2>{{ result.predicted_class }}</h2>
-                        <p>Filename: {{ result.image_details.filename }}<br>Size: {{ result.image_details.size }} bytes <br>Type: {{ result.image_details.type }} </p>
+						<h2 id="heading">{{ result.predicted_class }}</h2>
+						<p id="detail"> </p>
+						<!-- <p id="detail">Filename: {{ result.image_details.filename }}<br>Size: {{ result.image_details.size }} bytes <br>Type: {{ result.image_details.type }} </p> -->
 					</header>
-					<span class="image"><img src="data:image/png;base64,{{ result.image_details.data }}" alt="Project Image" /></span>
+					
 				</div>
 				<a href="#five" class="goto-next scrolly">Next</a>
 			</section>
@@ -63,14 +67,6 @@
 
 			<!-- Footer -->
 				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
 					<ul class="copyright">
 						<li>&copy; Copyright. All rights reserved.</li><li>Design By: <a href="#">NTU Students</a></li>
 					</ul>
@@ -89,5 +85,26 @@
 			<script src="{{ url_for('static', filename='js/util.js') }}"></script>
 			<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
+			<script>
+				// Get the predicted class
+				var predictedClass = "{{ result.predicted_class }}";
+			
+				// Get the detail element
+				var detailElement = document.getElementById("detail");
+			
+				// Get the image details
+				var filename = "{{ result.image_details.filename }}";
+				var size = "{{ result.image_details.size }} bytes";
+				var type = "{{ result.image_details.type }}";
+			
+				// Modify the inner HTML based on the predicted class and image details
+				if (predictedClass === "Non Invacive Ductal Carcinoma") {
+					var explanation = "Non-invasive ductal carcinoma is a type of breast cancer that remains within the milk duct <br> and does not invade nearby breast tissue. It is considered an early stage of breast cancer.";
+					detailElement.innerHTML += "" + explanation + "<br>Filename: " + filename + "<br>Size: " + size + "<br>Type: " + type;				
+				} else if (predictedClass === "Invacive Ductal Carcinoma") {
+					var explanation = "Invasive ductal carcinoma is the most common type of breast cancer, characterized by <br> cancer cells that break through the duct wall and invade nearby breast tissue.<br> It can spread to other  parts of the body.";
+					detailElement.innerHTML += "" + explanation + "<br>Filename: " + filename + "<br>Size: " + size + "<br>Type: " + type;
+				}
+			</script>
 	</body>
 </html>

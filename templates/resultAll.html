@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Ductal Carcinoma</title>
+		<title>CancerDetectLab</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
@@ -13,28 +13,31 @@
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">Landed</a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li>
-								<a href="#">Source Code</a>
-							</li>
-							<li><a target="_blank" href="https://www.kaggle.com/datasets/paultimothymooney/breast-histopathology-images?resource=download">Dataset</a></li>
-							<li><a href="#four" class="button primary">Get Started</a></li>
-						</ul>
-					</nav>
-				</header>
+			<header id="header">
+				<h1 id="logo"><a href="index.html">CancerDetectLab</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li>
+							<a href="/leukemia" >Acute Lymphoblastic Leukemia</a>
+						</li>
+						<li>
+							<a href="/BreastCancer" >Breast Cancer</a>
+						</li>
+						<li><a target="_blank" href="https://github.com/MAmmarRaza/CancerDetectLab.git">Source Code</a></li>
+						<li><a href="#four" class="button primary  scrolly">Get Started</a></li>
+					</ul>
+				</nav>
+			</header>
 
 			<!-- Banner -->
 			<section id="banner">
 				<div class="content">
 					<header>
-						<h2>{{ resnet_response.predicted_class_name }}</h2>
-                        <p>Filename: {{  resnet_response.image_details.filename }}<br>Size: {{  resnet_response.image_details.size }} bytes <br>Type: {{  resnet_response.image_details.type }} </p>
+						<span class="image" style="text-align: left;"><img src="data:image/png;base64,{{  resnet_response.image_details.data }}" alt="Project Image" /></span>
+						<h2 id="heading">{{ resnet_response.predicted_class_name }}</h2>
+                        <p id="detail"></p>
 					</header>
-					<span class="image"><img src="data:image/png;base64,{{  resnet_response.image_details.data }}" alt="Project Image" /></span>
 				</div>
 				<a href="#five" class="goto-next scrolly">Next</a>
 			</section>
@@ -63,14 +66,6 @@
 
 			<!-- Footer -->
 				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
 					<ul class="copyright">
 						<li>&copy; Copyright. All rights reserved.</li><li>Design By: <a href="#">NTU Students</a></li>
 					</ul>
@@ -89,5 +84,32 @@
 			<script src="{{ url_for('static', filename='js/util.js') }}"></script>
 			<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
+			<script>
+				// Get the predicted class
+				var predictedClass = "{{ resnet_response.predicted_class_name }}";
+			
+				// Get the detail element
+				var detailElement = document.getElementById("detail");
+			
+				// Get the image details
+				var filename = "{{ resnet_response.image_details.filename }}";
+				var size = "{{ resnet_response.image_details.size }} bytes";
+				var type = "{{ resnet_response.image_details.type }}";
+			
+				// Modify the inner HTML based on the predicted class and image details
+				if (predictedClass === "Benign") {
+					var explanation = "This subtype is characterized by non-cancerous cells and does not pose a significant health risk.";
+					detailElement.innerHTML += "" + explanation + "<br>Filename: " + filename + "<br>Size: " + size + "<br>Type: " + type;
+				} else if (predictedClass === "Early") {
+					var explanation = "Early Pre-B ALL: This subtype is characterized by the presence of early-stage <br> B-cell precursors, called early pre-B cells. These cells have not <br> yet undergone certain stages of maturation, such as the rearrangement of <br> immunoglobulin heavy chain genes.";
+					detailElement.innerHTML += "" + explanation + "<br>Filename: " + filename + "<br>Size: " + size + "<br>Type: " + type;
+				} else if (predictedClass === "Pre") {
+					var explanation = "Pre-B ALL: Pre-B ALL represents a more advanced stage of B-cell development. The <br> malignant lymphoblasts  in this subtype have undergone successful <br> rearrangement of immunoglobulin heavy chain genes.";
+					detailElement.innerHTML += "" + explanation + "<br>Filename: " + filename + "<br>Size: " + size + "<br>Type: " + type;
+				} else if (predictedClass === "Pro") {
+					var explanation = "Pro-B ALL: Pro-B ALL is the earliest stage of B-cell development among the <br> B-cell  precursor ALL subtypes. The malignant lymphoblasts in Pro-B ALL have <br> not yet undergone rearrangement of immunoglobulin heavy chain genes.";
+					detailElement.innerHTML += "" + explanation + "<br>Filename: " + filename + "<br>Size: " + size + "<br>Type: " + type;
+				}
+			</script>
 	</body>
 </html>

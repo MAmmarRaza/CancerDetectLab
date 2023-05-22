@@ -1,24 +1,58 @@
-To run the project, follow these steps:
+# Cancer Detection Project
 
-Clone the project repository or download the source code.
+This project implements a web application for cancer detection using deep learning models. It consists of two separate projects: one using a ResNet model for detecting various types of cancer, and another using a Keras model specifically for breast cancer detection.
 
-Install the necessary dependencies. You can use the following command to install the required packages:
+## Features
 
-pip install flask torchvision pillow tensorflow
-Place your model files in the appropriate locations. In the provided code, the ResNet model is expected to be located at models/Model.pth, and the Keras model files (_model_.json and _model_.h5) are expected to be in the md folder.
+- Predict the presence of cancer in medical images.
+- Supports two different deep learning models for cancer detection.
+- Provides a user-friendly web interface for uploading and predicting images.
+- Displays the predicted class and image details.
 
-Make sure you have the desired HTML templates (index.html, result.html, resultAll.html, All.html, and BreastCancer.html) in the same directory as your Python script.
+## Prerequisites
 
-Run the Flask application by executing the following command in the terminal:
-python your_script_name.py
-Replace your_script_name.py with the actual name of your Python script.
+Before running this project, make sure you have the following dependencies installed:
 
-Once the application is running, open your web browser and visit http://localhost:5000 to access the home page.
+- Python 3.x
+- Flask
+- TorchVision
+- Pillow
+- TensorFlow
+- NumPy
 
-Use the provided web interface to upload and predict the class for the images using the ResNet model (/predictAll route) or the Keras model (/predict route).
 
-That's it! You should now be able to run and use the project. Make sure to adjust the file paths and model names if necessary, and ensure that your models are properly trained and saved before running the application.
+## Usage
 
+1. Clone this repository to your local machine or download the source code.
+
+2. Navigate to the project directory.
+
+3. Place your trained model files in the appropriate locations:
+   - For the ResNet model, place the model file in the `models` directory.
+   - For the Keras model, place the model JSON file and weight file in the `md` directory.
+
+4. Open a terminal or command prompt and run the following command to start the Flask application:
+-python app.py
+
+
+5. Open your web browser and visit `http://localhost:5000` to access the web application.
+
+6. Use the provided interface to upload an image and get predictions for cancer detection.
+
+## Folder Structure
+
+The folder structure of this project is as follows:
+
+- `models/`: Contains the saved model file for the ResNet model.
+- `md/`: Contains the saved model JSON file and weight file for the Keras model.
+- `templates/`: Contains the HTML templates for the web application.
+- `static/`: Contains static files such as CSS stylesheets and images.
+- `app.py`: The main Flask application script.
+- `README.md`: This file.
+
+## License
+
+Feel free to modify and adapt this project to suit your needs.
 
 
 

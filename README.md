@@ -29,6 +29,7 @@ Before running this project, make sure you have the following dependencies insta
 
 3. Place your trained model files in the appropriate locations:
    - For the ResNet model, place the model file in the `models` directory.
+   - ResNet Model is not present in Repository you can download it from the link:
    - For the Keras model, place the model JSON file and weight file in the `md` directory.
 
 4. Open a terminal or command prompt and run the following command to start the Flask application:
